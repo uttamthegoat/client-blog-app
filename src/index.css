@@ -20,6 +20,7 @@ body {
   width: 100vw;
   min-height: 100vh;
   width: calc(100vw - 5px);
+  overflow-x: auto;
 }
 
 ::-webkit-scrollbar-track {

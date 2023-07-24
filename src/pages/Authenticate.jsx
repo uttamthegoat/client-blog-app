@@ -2,9 +2,8 @@ import React from "react";
 import LoginTab from "../components/Authentication/LoginTab";
 import SignupTab from "../components/Authentication/SignupTab";
 
-const Authenticate = (props) => {
+const Authenticate = () => {
   const [openTab, setOpenTab] = React.useState(1);
-  //   const { color } = props;
   return (
     <>
       <div className="flex flex-wrap">
@@ -26,7 +25,7 @@ const Authenticate = (props) => {
                   setOpenTab(1);
                 }}
                 data-toggle="tab"
-                href="#link1"
+                href="#register_tab"
                 role="tablist"
               >
                 Register
@@ -45,7 +44,7 @@ const Authenticate = (props) => {
                   setOpenTab(2);
                 }}
                 data-toggle="tab"
-                href="#link2"
+                href="#login_tab"
                 role="tablist"
               >
                 Login
@@ -55,10 +54,16 @@ const Authenticate = (props) => {
           <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
             <div className="px-4 py-5 flex-auto">
               <div className="tab-content tab-space">
-                <div className={openTab === 1 ? "block" : "hidden"} id="link1">
+                <div
+                  className={openTab === 1 ? "block" : "hidden"}
+                  id="register_tab"
+                >
                   <SignupTab />
                 </div>
-                <div className={openTab === 2 ? "block" : "hidden"} id="link2">
+                <div
+                  className={openTab === 2 ? "block" : "hidden"}
+                  id="login_tab"
+                >
                   <LoginTab />
                 </div>
               </div>
