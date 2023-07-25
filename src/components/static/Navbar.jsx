@@ -28,7 +28,7 @@ const Navbar = () => {
             styles.Navbar_Navlinks
           } shadow-md sm:shadow-none sm:flex sm:items-center sm:pb-0 pb-12 absolute sm:static sm:z-0 z-[1] left-0 w-full sm:w-auto sm:pl-0 pl-9 transition-all duration-500 ease-in ${
             open
-              ? "top-20 opacity-100"
+              ? "top-[6.5rem] opacity-100"
               : "top-[-490px] opacity-0 md:opacity-100"
           }`}
         >

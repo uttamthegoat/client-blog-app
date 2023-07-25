@@ -1,20 +1,28 @@
 import "./App.css";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Authenticate from "./pages/Authenticate";
 import Navbar from "./components/static/Navbar";
-import Posts from "./pages/Posts";
+import { routes } from "./assets/constants";
 
 function App() {
   return (
     <div className="bg-gradient-to-r from-sky-500 to-indigo-500">
       <Router>
-        <Navbar />
-        <Routes>
-          <Route exact path="/" element={<Authenticate color={"pink"} />} />
-          <Route exact path="/home" element={<Home />} />
-          {/* <Route exact path="/home" element={<Posts />} /> */}
-        </Routes>
+        <React.Suspense fallback={<h1>Loading...</h1>}>
+          <Navbar />
+          <Routes>
+            {routes.map((route) => {
+              return (
+                <Route
+                  key={route.id}
+                  exact
+                  path={route.path}
+                  element={route.element}
+                />
+              );
+            })}
+          </Routes>
+        </React.Suspense>
       </Router>
     </div>
   );
