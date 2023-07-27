@@ -69,7 +69,7 @@ const MyInfo = () => {
       </form>
 
       <p className="mt-10 mx-4 text-2xl font-bold">My Information</p>
-      <form onSubmit={handleInfoSubmit} className="flex flex-col w-full sm:w-[500px]">
+      <form onSubmit={handleInfoSubmit} className="flex flex-col w-full md:w-[500px]">
         <label htmlFor="user_Name" className="font-semibold mt-4 mb-2">
           Name
         </label>
