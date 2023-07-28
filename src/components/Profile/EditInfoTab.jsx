@@ -1,7 +1,11 @@
 import React from "react";
-import MyInfo from "./Edit_info_tabs/MyInfo";
-import MyPosts from "./Edit_info_tabs/MyPosts";
-import SocialMedia from "./Edit_info_tabs/SocialMedia";
+// import MyInfo from "./Edit_info_tabs/MyInfo";
+// import MyPosts from "./Edit_info_tabs/MyPosts";
+// import SocialMedia from "./Edit_info_tabs/SocialMedia";
+
+const MyInfo = React.lazy(()=>import("./Edit_info_tabs/MyInfo"))
+const MyPosts = React.lazy(()=>import("./Edit_info_tabs/MyPosts"))
+const SocialMedia = React.lazy(()=>import("./Edit_info_tabs/SocialMedia"))
 
 const EditInfoTab = ({ color }) => {
   const [openTab, setOpenTab] = React.useState(1);

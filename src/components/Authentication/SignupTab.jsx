@@ -1,6 +1,6 @@
 import React from "react";
-import axios from "../../utils/axiosConfig";
 import { useNavigate } from "react-router-dom";
+import { signup_User } from "./apiCall";
 
 const SignupTab = () => {
   const navigate = useNavigate();
@@ -17,18 +17,7 @@ const SignupTab = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post("/auth/signup", loginDet)
-      .then((res) => {
-        if (res.data.success) {
-          console.log(res.data.message);
-          navigate("/home");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        alert(error.response.data.message);
-      });
+    signup_User(loginDet, navigate);
   };
   return (
     <div className="sm:w-10/12 sm:mx-auto md:w-9/12 lg:w-[422px]">

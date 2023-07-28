@@ -8,7 +8,6 @@ const EditInfoTab = React.lazy(() =>
 );
 
 const Profile = () => {
-
   return (
     <div className="py-12">
       <div className="w-full">

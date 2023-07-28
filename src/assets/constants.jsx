@@ -65,3 +65,38 @@ export const routes = [
     element: <Redirect />,
   },
 ];
+
+export const fieldValue = (socialLinks, name) => {
+  if (name === "instagram") {
+    return socialLinks.instagram;
+  } else if (name === "facebook") {
+    return socialLinks.facebook;
+  } else if (name === "twitter") {
+    return socialLinks.twitter;
+  } else if (name === "linkedin") {
+    return socialLinks.linkedin;
+  }
+};
+
+export const socialMedia_Fields = [
+  {
+    id: "Instagram",
+    name: "instagram",
+    placeholder: "Enter Instagram url here...",
+  },
+  {
+    id: "Facebook",
+    name: "facebook",
+    placeholder: "Enter Instagram url here...",
+  },
+  {
+    id: "Twitter",
+    name: "twitter",
+    placeholder: "Enter Instagram url here...",
+  },
+  {
+    id: "Linkedin",
+    name: "linkedin",
+    placeholder: "Enter Instagram url here...",
+  },
+];

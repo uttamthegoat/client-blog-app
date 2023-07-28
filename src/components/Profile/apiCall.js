@@ -4,6 +4,10 @@ import {
   changeImage,
   updateUserInfo,
 } from "../../features/user/userSlice";
+import {
+  addSocialMedia,
+  getSocialMedia,
+} from "../../features/social-media/socialMediaSlice";
 
 export const getUser_apiCall = async (navigate, dispatch) => {
   try {
@@ -40,6 +44,27 @@ export const handleUserInfoUpdate = async (
     });
     const { bio, name } = res.data.user;
     dispatch(updateUserInfo({ name, bio }));
+  } catch (error) {
+    console.log(error);
+    if (error.response.data.status === "logout") navigate("/");
+  }
+};
+
+export const get_SocialMedia = async (navigate, dispatch) => {
+  try {
+    const res = await axios.get("/social-media/get-social-media");
+    const { socialMedia } = res.data;
+    dispatch(getSocialMedia({ socialMedia }));
+  } catch (error) {
+    console.log(error);
+    if (error.response.data.status === "logout") navigate("/");
+  }
+};
+
+export const update_SocialMedia = async (navigate, dispatch, socialLinks) => {
+  try {
+    const res = await axios.put("/social-media/add-social-media", socialLinks);
+    dispatch(addSocialMedia(socialLinks));
   } catch (error) {
     console.log(error);
     if (error.response.data.status === "logout") navigate("/");
