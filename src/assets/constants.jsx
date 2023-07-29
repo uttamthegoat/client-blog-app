@@ -100,3 +100,26 @@ export const socialMedia_Fields = [
     placeholder: "Enter Instagram url here...",
   },
 ];
+
+export const socialLinks = [
+  {
+    id: 1,
+    alt: "instagram",
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/640px-Instagram_logo_2022.svg.png",
+  },
+  {
+    id: 2,
+    alt: "facebook",
+    src: "https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Facebook_f_logo_%282021%29.svg/1200px-Facebook_f_logo_%282021%29.svg.png",
+  },
+  {
+    id: 3,
+    alt: "twitter",
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/220px-Logo_of_Twitter.svg.png",
+  },
+  {
+    id: 4,
+    alt: "linkedin",
+    src: "https://freelogopng.com/images/all_img/1656994981linkedin-icon-png.png",
+  },
+];

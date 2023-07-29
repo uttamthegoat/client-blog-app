@@ -15,7 +15,7 @@ const Navbar = () => {
           <span className="text-3xl text-indigo-600 mr-1 pt-2">
             <img src={brand} alt="Brand_logo" className="w-14 rounded-md" />
           </span>
-          Designer
+          <span className="first-letter:text-2xl">Blogger</span>
         </div>
         <div
           onClick={() => setOpen(!open)}
