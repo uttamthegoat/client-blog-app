@@ -16,10 +16,6 @@ const socialMediaUser = createSlice({
         action.payload.socialMedia;
       return { ...state, instagram, facebook, twitter, linkedin };
     },
-    setSocialLink: (state, action) => {
-      const { instagram, facebook, twitter, linkedin } = action.payload;
-      return { ...state, instagram, facebook, twitter, linkedin };
-    },
     addSocialMedia: (state, action) => {
       const { instagram, facebook, twitter, linkedin } = action.payload;
       return { ...state, instagram, facebook, twitter, linkedin };
@@ -29,7 +25,6 @@ const socialMediaUser = createSlice({
 
 export const selectLinks = (state) => state.socialMedia;
 
-export const { getSocialMedia, addSocialMedia, setSocialLink } =
-  socialMediaUser.actions;
+export const { getSocialMedia, addSocialMedia } = socialMediaUser.actions;
 
 export default socialMediaUser.reducer;

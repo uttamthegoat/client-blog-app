@@ -1,31 +1,30 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { get_SocialMedia, update_SocialMedia } from "../apiCall";
-import {
-  selectLinks,
-  setSocialLink,
-} from "../../../features/social-media/socialMediaSlice";
 import { fieldValue, socialMedia_Fields } from "../../../assets/constants";
 
 const SocialMedia = () => {
-  const socialLinks = useSelector(selectLinks);
+  const [userLinks, setUserLinks] = useState({
+    instagram: "",
+    facebook: "",
+    twitter: "",
+    linkedin: "",
+  });
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  React.useEffect(() => {
-    get_SocialMedia(navigate, dispatch);
+  useEffect(() => {
+    get_SocialMedia(setUserLinks, navigate, dispatch);
   }, []);
 
   const handleLinksChange = (e) => {
-    dispatch(
-      setSocialLink({ ...socialLinks, [e.target.name]: e.target.value })
-    );
+    setUserLinks({ ...userLinks, [e.target.name]: e.target.value });
   };
 
   const handleSocialMediaDets = (e) => {
     e.preventDefault();
-    update_SocialMedia(navigate, dispatch, socialLinks);
+    update_SocialMedia(navigate, dispatch, userLinks);
   };
 
   return (
@@ -49,7 +48,7 @@ const SocialMedia = () => {
                 type="text"
                 name={field.name}
                 id={field.id}
-                value={fieldValue(socialLinks,field.name)}
+                value={fieldValue(userLinks, field.name)}
                 onChange={handleLinksChange}
                 placeholder={field.placeholder}
                 className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"

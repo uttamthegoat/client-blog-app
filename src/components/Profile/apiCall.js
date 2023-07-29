@@ -12,7 +12,7 @@ import {
 export const getUser_apiCall = async (navigate, dispatch) => {
   try {
     const res = await axios.get("/auth/getUserDetails");
-    const { user } = res.data;
+    const { _id, ...user } = res.data.user;
     dispatch(getUser({ user }));
   } catch (error) {
     console.log(error);
@@ -31,17 +31,10 @@ export const imageChange_apiCall = async (navigate, dispatch, formData) => {
   }
 };
 
-export const handleUserInfoUpdate = async (
-  navigate,
-  dispatch,
-  userName,
-  userBio
-) => {
+export const handleUserInfoUpdate = async (navigate, dispatch, userDetails) => {
   try {
-    const res = await axios.put("/auth/profile-update", {
-      name: userName,
-      bio: userBio,
-    });
+    const { email,...rest } = userDetails;
+    const res = await axios.put("/auth/profile-update", rest);
     const { bio, name } = res.data.user;
     dispatch(updateUserInfo({ name, bio }));
   } catch (error) {
@@ -50,21 +43,34 @@ export const handleUserInfoUpdate = async (
   }
 };
 
-export const get_SocialMedia = async (navigate, dispatch) => {
+export const get_SocialMedia = async (setUserLink, navigate, dispatch) => {
   try {
     const res = await axios.get("/social-media/get-social-media");
-    const { socialMedia } = res.data;
+    const { _id, ...socialMedia } = res.data.socialMedia;
     dispatch(getSocialMedia({ socialMedia }));
+    setUserLink(socialMedia);
   } catch (error) {
     console.log(error);
     if (error.response.data.status === "logout") navigate("/");
   }
 };
 
-export const update_SocialMedia = async (navigate, dispatch, socialLinks) => {
+export const update_SocialMedia = async (navigate, dispatch, user_Links) => {
   try {
-    const res = await axios.put("/social-media/add-social-media", socialLinks);
-    dispatch(addSocialMedia(socialLinks));
+    const res = await axios.put("/social-media/add-social-media", user_Links);
+    dispatch(addSocialMedia(user_Links));
+    console.log(res.data.message);
+  } catch (error) {
+    console.log(error);
+    if (error.response.data.status === "logout") navigate("/");
+  }
+};
+
+export const getUser_toEdit = async (navigate, setUserDetails) => {
+  try {
+    const res = await axios.get("/auth/getUserDetails");
+    const { _id, image, ...user } = res.data.user;
+    setUserDetails(user);
   } catch (error) {
     console.log(error);
     if (error.response.data.status === "logout") navigate("/");
