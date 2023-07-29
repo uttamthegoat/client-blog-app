@@ -17,7 +17,7 @@ export const signup_User = (loginDet, navigate) => {
 
 export const login_User = (loginDet, navigate) => {
   axios
-    .post("http://localhost:5002/api/v1/blog-app/auth/login", loginDet)
+    .post("/auth/login", loginDet)
     .then((res) => {
       if (res.data.success) {
         console.log(res.data.message);
