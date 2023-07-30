@@ -6,7 +6,7 @@ import { routes } from "./assets/constants";
 
 function App() {
   return (
-    <div className="bg-gradient-to-r from-sky-500 to-indigo-500">
+    <div className="App bg-gradient-to-r from-sky-500 to-indigo-500">
       <Router>
         <React.Suspense fallback={<h1>Loading...</h1>}>
           <Navbar />

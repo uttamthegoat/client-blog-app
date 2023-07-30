@@ -18,7 +18,6 @@
 body {
   margin: 0;
   width: 100vw;
-  min-height: 100vh;
   width: calc(100vw - 5px);
   overflow-x: auto;
 }

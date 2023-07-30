@@ -6,7 +6,7 @@ const Search = React.lazy(() => import("../pages/Search"));
 const About = React.lazy(() => import("../pages/About"));
 const Redirect = React.lazy(() => import("../pages/Redirect"));
 
-export const Links = [
+export const Nav_Links = [
   {
     id: 1,
     name: "Home",
@@ -121,5 +121,29 @@ export const socialLinks = [
     id: 4,
     alt: "linkedin",
     src: "https://freelogopng.com/images/all_img/1656994981linkedin-icon-png.png",
+  },
+];
+
+export const adminSocialMedia = [
+  {
+    id: 1,
+    name: "Github",
+    url: "https://github.com/uttamthegoat",
+    imgUrl:
+      "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+  },
+  {
+    id: 2,
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/uttam-prabhu-685562249/",
+    imgUrl:
+      "https://freelogopng.com/images/all_img/1656994981linkedin-icon-png.png",
+  },
+  {
+    id: 3,
+    name: "Instagram",
+    url: "https://www.instagram.com/uttamthegoat/",
+    imgUrl:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/640px-Instagram_logo_2022.svg.png",
   },
 ];

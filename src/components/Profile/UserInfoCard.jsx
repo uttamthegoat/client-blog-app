@@ -17,7 +17,7 @@ const UserInfoTab = () => {
   return (
     <div className="shadow-2xl w-10/12 mx-auto flex flex-col bg-white rounded-lg md:flex-row dark:border-gray-700 dark:bg-blue-400">
       <img
-        className="object-cover w-full rounded-t-lg h-96 sm:w-[300px] sm:h-auto sm:pt-4 md:pt-0 md:h-auto md:w-[400px] md:rounded-none md:rounded-l-lg"
+        className="object-cover w-full rounded-t-lg h-96 sm:w-[300px] sm:h-auto sm:pt-4 md:pt-0 md:h-auto md:w-[400px] md:rounded-none md:rounded-l-lg sm:mx-auto"
         src={userInfo.image}
         alt=""
       />
@@ -32,7 +32,7 @@ const UserInfoTab = () => {
           Bio:
           {userInfo.bio}
         </p>
-        <SocialLinks heading="My Social Media"/>
+        <SocialLinks heading="My Social Media" />
       </div>
     </div>
   );
