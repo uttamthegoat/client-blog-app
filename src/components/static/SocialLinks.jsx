@@ -16,11 +16,12 @@ const SocialLinks = ({ heading }) => {
               key={link.id}
               target="_blank"
               href={fieldValue(myLinks, link.alt)}
+              className="me-2 flex items-center justify-center bg-white rounded-xl"
             >
               <LazyLoadImage
                 src={link.src}
                 alt={link.alt}
-                className="w-14 pr-2"
+                className="w-14"
               />
             </a>
           );

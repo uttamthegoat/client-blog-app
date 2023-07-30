@@ -2,6 +2,7 @@ import "./App.css";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/static/Navbar";
+import Footer from "./components/static/Footer";
 import { routes } from "./assets/constants";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
               );
             })}
           </Routes>
+          <Footer />
         </React.Suspense>
       </Router>
     </div>

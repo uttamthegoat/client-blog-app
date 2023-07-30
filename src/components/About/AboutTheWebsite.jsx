@@ -7,8 +7,8 @@ const AboutTheWebsite = (props) => {
   return (
     <div className="px-8 w-full mx-auto sm:w-9/12 md:w-10/12">
       <div>
-        <h1 className="Style_name text-5xl font-bold pb-8 text-center">
-          Blogger.
+        <h1 className="text-5xl font-bold pb-8 text-center">
+          <span className="Style_name">Blogger.</span>
         </h1>
         <div className="mb-6">
           <LazyLoadImage
@@ -72,12 +72,12 @@ const AboutTheWebsite = (props) => {
             return (
               <li
                 key={link.id}
-                className="flex justify-start items-center font-semibold my-2"
+                className="flex justify-start items-center font-semibold my-2 text-xl"
               >
                 <LazyLoadImage
                   src={link.imgUrl}
                   alt={link.name}
-                  className="w-8 rounded-lg me-2"
+                  className="w-12 rounded-lg me-2"
                 />
                 {link.name}:{" "}
                 <a href={link.url} target="_blank" className="underline ms-2">
