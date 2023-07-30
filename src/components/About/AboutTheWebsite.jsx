@@ -1,7 +1,6 @@
 import React from "react";
-import brand from "../../assets/brand.jpg";
-import theGoat from "../../assets/theGoat.jpeg";
 import { adminSocialMedia } from "../../assets/constants";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const AboutTheWebsite = (props) => {
   let { myAge } = props;
@@ -12,8 +11,8 @@ const AboutTheWebsite = (props) => {
           Blogger.
         </h1>
         <div className="mb-6">
-          <img
-            src={brand}
+          <LazyLoadImage
+            src="https://res.cloudinary.com/dnsedswbm/image/upload/v1690739822/brand_hueno5.jpg"
             alt="Brand_Logo"
             className="w-32 rounded-lg mx-auto transition-transform transform hover:scale-125  hover:cursor-pointer"
           />
@@ -44,8 +43,8 @@ const AboutTheWebsite = (props) => {
       <div className="py-10">
         <h1 className="text-5xl font-bold mb-10 text-center">Creator</h1>
         <div className="mb-9">
-          <img
-            src={theGoat}
+          <LazyLoadImage
+            src="https://res.cloudinary.com/dnsedswbm/image/upload/v1690739283/theGoat_k8eu0k.jpg"
             alt="theGoat"
             className="w-56 rounded-lg mx-auto transition-transform transform hover:scale-125  hover:cursor-pointer"
           />
@@ -75,7 +74,7 @@ const AboutTheWebsite = (props) => {
                 key={link.id}
                 className="flex justify-start items-center font-semibold my-2"
               >
-                <img
+                <LazyLoadImage
                   src={link.imgUrl}
                   alt={link.name}
                   className="w-8 rounded-lg me-2"

@@ -2,6 +2,7 @@ import React from "react";
 import { socialLinks, fieldValue } from "../../assets/constants";
 import { selectLinks } from "../../features/social-media/socialMediaSlice";
 import { useSelector } from "react-redux";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const SocialLinks = ({ heading }) => {
   const myLinks = useSelector(selectLinks);
@@ -16,7 +17,11 @@ const SocialLinks = ({ heading }) => {
               target="_blank"
               href={fieldValue(myLinks, link.alt)}
             >
-              <img src={link.src} alt={link.alt} className="w-14 pr-2" />
+              <LazyLoadImage
+                src={link.src}
+                alt={link.alt}
+                className="w-14 pr-2"
+              />
             </a>
           );
         })}

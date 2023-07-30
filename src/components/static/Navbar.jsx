@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./styles/Navbar.module.css";
-import brand from "../../assets/brand.jpg";
 import { Nav_Links } from "../../assets/constants";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Navbar = () => {
   let [open, setOpen] = React.useState(false);
@@ -13,7 +13,11 @@ const Navbar = () => {
       <div className="sm:flex items-center justify-between py-4 sm:px-10 px-7 sm:z-0 z-[2]">
         <div className="font-bold text-2xl cursor-pointer flex items-center font-[Poppins] text-gray-800">
           <span className="text-3xl text-indigo-600 mr-1">
-            <img src={brand} alt="Brand_logo" className="w-14 rounded-md" />
+            <LazyLoadImage
+              src="https://res.cloudinary.com/dnsedswbm/image/upload/v1690739822/brand_hueno5.jpg"
+              alt="Brand_logo"
+              className="w-14 rounded-md"
+            />
           </span>
           <Link className="Style_name text-4xl">Blogger.</Link>
         </div>
