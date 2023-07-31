@@ -2,6 +2,7 @@ import "./App.css";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/static/Navbar";
+import ScrollToTop from "./components/static/ScrollToTop";
 import Footer from "./components/static/Footer";
 import { routes } from "./assets/constants";
 
@@ -11,6 +12,7 @@ function App() {
       <Router>
         <React.Suspense fallback={<h1>Loading...</h1>}>
           <Navbar />
+          <ScrollToTop/>
           <Routes>
             {routes.map((route) => {
               return (
