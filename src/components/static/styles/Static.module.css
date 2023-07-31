@@ -13,3 +13,12 @@
     width: calc(100vw - 5px);
   }
 }
+
+.Footer_Custom_li {
+  list-style-type: '▷';
+}
+.Footer_Custom_li:hover {
+  list-style-type: '▶';
+  color: #ff0078;
+  text-decoration: underline;
+}

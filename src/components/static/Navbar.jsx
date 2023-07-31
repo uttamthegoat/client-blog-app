@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./styles/Navbar.module.css";
+import styles from "./styles/Static.module.css";
 import { Nav_Links } from "../../assets/constants";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Navbar = () => {
   let [open, setOpen] = React.useState(false);
   return (
-    <div
+    <nav
       className={`${styles.Navbar_Glass} shadow-xl w-full static top-0 left-0`}
     >
       <div className="sm:flex items-center justify-between py-4 sm:px-10 px-7 sm:z-0 z-[2]">
@@ -51,7 +51,7 @@ const Navbar = () => {
           })}
         </ul>
       </div>
-    </div>
+    </nav>
   );
 };
 
