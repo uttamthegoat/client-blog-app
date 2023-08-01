@@ -1,5 +1,6 @@
 import React from "react";
 const Home = React.lazy(() => import("../pages/Home"));
+const Posts = React.lazy(() => import("../pages/Posts"));
 const Authenticate = React.lazy(() => import("../pages/Authenticate"));
 const Profile = React.lazy(() => import("../pages/Profile"));
 const Search = React.lazy(() => import("../pages/Search"));
@@ -63,6 +64,11 @@ export const routes = [
     id: 6,
     path: "*",
     element: <Redirect />,
+  },
+  {
+    id: 7,
+    path: "/posts",
+    element: <Posts />,
   },
 ];
 

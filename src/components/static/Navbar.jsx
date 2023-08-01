@@ -19,7 +19,7 @@ const Navbar = () => {
               className="w-14 rounded-md"
             />
           </span>
-          <Link className="Style_name text-4xl">Blogger.</Link>
+          <Link to="/" className="Style_name text-[2rem] py-2">Blogger.</Link>
         </div>
         <div
           onClick={() => setOpen(!open)}

@@ -4,16 +4,17 @@ import axios from "../utils/axiosConfig";
 const Posts = () => {
   const [posts, setPosts] = useState([]);
   const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
+  const [pageSize, setPageSize] = useState(2);
+  const [totalResults, setTotalResults] = useState(0);
 
   const fetchPosts = async (page) => {
-    const response = await axios.get(`/posts?page=${page}&pageSize=1`);
+    const response = await axios.get(
+      `/posts?page=${page}&pageSize=${pageSize}`
+    );
     const data = response.data;
     setPosts(data.results);
-    setTotalPages(data.totalPages);
+    setTotalResults(data.totalResults);
     setPage(page);
-    // console.log(data);
-    // console.log(data.totalPages);
   };
 
   useEffect(() => {
@@ -41,7 +42,7 @@ const Posts = () => {
         Prev
       </button>
       <button
-        disabled={page + 1 > Math.ceil(totalPages / 1)}
+        disabled={page + 1 > Math.ceil(totalResults / pageSize)}
         onClick={handleNext}
       >
         Next
