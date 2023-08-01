@@ -6,8 +6,10 @@ import {
   imageChange_apiCall,
 } from "../apiCall";
 import { useNavigate } from "react-router-dom";
+import { selectUser } from "../../../features/user/userSlice";
 
 const MyInfo = () => {
+  const { email } = useSelector(selectUser);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [selectedFile, setSelectedFile] = React.useState(null);
@@ -29,8 +31,7 @@ const MyInfo = () => {
     if (selectedFile) {
       const formData = new FormData();
       formData.append("file", selectedFile);
-      formData.append("type", "User");
-      formData.append("email", "uttam@gmail.com");
+      formData.append("email", email);
       imageChange_apiCall(navigate, dispatch, formData);
     }
   };

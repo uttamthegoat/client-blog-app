@@ -9,7 +9,7 @@ export const signup_User = (loginDet, navigate, dispatch) => {
         const message = res.data.message,
           type = "success";
         dispatch(showAlert({ message, type }));
-        navigate("/home");
+        navigate("/");
       }
     })
     .catch((error) => {
@@ -27,7 +27,7 @@ export const login_User = (loginDet, navigate, dispatch) => {
         const message = res.data.message,
           type = "success";
         dispatch(showAlert({ message, type }));
-        navigate("/home");
+        navigate("/");
       }
     })
     .catch((error) => {

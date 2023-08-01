@@ -37,12 +37,12 @@ export const Nav_Links = [
 export const routes = [
   {
     id: 1,
-    path: "/",
+    path: "/auth",
     element: <Authenticate />,
   },
   {
     id: 2,
-    path: "/home",
+    path: "/",
     element: <Home />,
   },
   {
@@ -66,6 +66,7 @@ export const routes = [
     element: <Redirect />,
   },
   {
+    // just for testing
     id: 7,
     path: "/posts",
     element: <Posts />,

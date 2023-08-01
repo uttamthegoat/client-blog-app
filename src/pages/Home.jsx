@@ -17,8 +17,7 @@ const Home = () => {
           setBio(res.data.user.bio);
         })
         .catch((error) => {
-          console.log(error.response.data.message);
-          if (error) navigate("/");
+          if (error.response.data.status === "logout") navigate("/auth");
         });
     };
     fetchUser();
@@ -35,7 +34,7 @@ const Home = () => {
       })
       .catch((error) => {
         const { status } = error.response.data;
-        if (status === "logout") navigate("/");
+        if (status === "logout") navigate("/auth");
       });
   };
 
