@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/static/Navbar";
 import ScrollToTop from "./components/static/ScrollToTop";
 import Footer from "./components/static/Footer";
-import { routes } from "./assets/constants";
+import { routes } from "./utils/routes";
 import Alert from "./components/static/Alert";
 
 function App() {
