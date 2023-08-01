@@ -1,8 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { login_User } from "./apiCall";
+import { useDispatch } from "react-redux";
 
 const LoginTab = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [loginDet, setLoginDet] = React.useState({ email: "", password: "" });
 
@@ -12,7 +14,7 @@ const LoginTab = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    login_User(loginDet, navigate);
+    login_User(loginDet, navigate, dispatch);
   };
   return (
     <div className="sm:w-10/12 sm:mx-auto md:w-9/12 lg:w-[422px]">

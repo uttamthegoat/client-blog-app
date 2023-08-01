@@ -5,6 +5,7 @@ import Navbar from "./components/static/Navbar";
 import ScrollToTop from "./components/static/ScrollToTop";
 import Footer from "./components/static/Footer";
 import { routes } from "./assets/constants";
+import Alert from "./components/static/Alert";
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <Router>
         <React.Suspense fallback={<h1>Loading...</h1>}>
           <Navbar />
-          <ScrollToTop/>
+          <ScrollToTop />
+          <Alert />
           <Routes>
             {routes.map((route) => {
               return (
