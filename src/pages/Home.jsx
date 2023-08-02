@@ -23,36 +23,7 @@ const Home = () => {
     fetchUser();
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    axios
-      .put("/auth/profile-update", {
-        bio: bio,
-      })
-      .then((res) => {
-        setBio(res.data.user.bio);
-      })
-      .catch((error) => {
-        const { status } = error.response.data;
-        if (status === "logout") navigate("/auth");
-      });
-  };
-
-  return (
-    <div>
-      <p>Name: {user}</p>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="bio"
-          id="bio"
-          placeholder="Enter Bio"
-          value={bio}
-          onChange={(e) => setBio(e.target.value)}
-        />
-      </form>
-    </div>
-  );
+  return <div></div>;
 };
 
 export default Home;
