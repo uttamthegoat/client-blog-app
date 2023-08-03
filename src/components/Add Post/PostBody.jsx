@@ -133,23 +133,35 @@ const PostBody = () => {
             className="block sm:mx-auto sm:w-10/12 placeholder:text-gray-600 placeholder:font-semibold px-2 py-2 outline-none rounded-md"
           ></textarea>
         </div>
-        <div>
+        <div className="flex flex-col my-7 px-2">
           {/* tags */}
-          <label htmlFor="Post_tagValue">Enter the tags</label>
-          <input
-            type="text"
-            name="tagValue"
-            id="Post_tagValue"
-            value={tagValue}
-            onChange={(e) => setTagValue(e.target.value)}
-            placeholder="Enter tag here..."
-          />
-          <button type="button" onClick={handleAddTag}>
-            Add tag
-          </button>
-          <section>
+          <div className="flex flex-col mx-auto w-full sm:w-3/4 md:w-[450px]">
+            <label
+              htmlFor="Post_tagValue"
+              className="font-bold text-3xl mb-2 sm:w-10/12 sm:me-auto"
+            >
+              Enter the tags
+            </label>
+            <input
+              type="text"
+              name="tagValue"
+              id="Post_tagValue"
+              value={tagValue}
+              onChange={(e) => setTagValue(e.target.value)}
+              placeholder="Enter tag here..."
+              className="block h-10 rounded-sm px-2 py-1 mb-2 outline-none placeholder:text-gray-600 shadow-lg shadow-gray-300 font-semibold"
+            />
+            <button
+              type="button"
+              onClick={handleAddTag}
+              className="px-4 py-2 mx-auto w-36 text-base font-medium text-white bg-blue-600 border border-blue-700 rounded-md shadow-md hover:bg-blue-700 outline-none"
+            >
+              Add Tag
+            </button>
+          </div>
+          <section className="flex flex-wrap justify-center mx-auto my-5 sm:w-[450px]">
             {tag.map((item, index) => (
-              <span key={index}>{item}</span>
+              <span key={index} className="mx-0.5 my-1 px-4 py-1 bg-gray-600 text-white font-semibold rounded-xl">{item}</span>
             ))}
           </section>
         </div>
