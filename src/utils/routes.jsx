@@ -1,5 +1,6 @@
-import React from 'react'
+import React from "react";
 const Home = React.lazy(() => import("../pages/Home"));
+const PostItem = React.lazy(() => import("../pages/PostItem"));
 const Posts = React.lazy(() => import("../pages/Posts"));
 const AddPost = React.lazy(() => import("../pages/AddPost"));
 const Authenticate = React.lazy(() => import("../pages/Authenticate"));
@@ -13,42 +14,55 @@ export const routes = [
     id: 1,
     path: "/auth",
     element: <Authenticate />,
+    status: true,
   },
   {
     id: 2,
     path: "/",
     element: <Home />,
+    status: false,
   },
   {
     id: 3,
     path: "/user-profile",
     element: <Profile />,
+    status: false,
   },
   {
     id: 4,
     path: "/search",
     element: <Search />,
+    status: false,
   },
   {
     id: 5,
     path: "/about",
     element: <About />,
+    status: true,
   },
   {
     id: 6,
     path: "*",
     element: <Redirect />,
+    status: true,
   },
   {
     // just for testing
     id: 7,
     path: "/posts",
     element: <Posts />,
+    status: "whocares",
   },
   {
-    // just for testing
     id: 8,
     path: "/add-post",
     element: <AddPost />,
+    status: true,
+  },
+  {
+    id: 9,
+    path: "/post-item/:id",
+    element: <PostItem />,
+    status: false,
   },
 ];

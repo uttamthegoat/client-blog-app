@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import { useParams } from "react-router-dom";
+import ViewPost from "../components/View Post/ViewPost";
 
 const PostItem = () => {
-  return (
-    <div>PostItem</div>
-  )
-}
+  const { id } = useParams();
 
-export default PostItem
+  return (
+    <div>
+      <ViewPost id={id} />
+    </div>
+  );
+};
+
+export default PostItem;
+

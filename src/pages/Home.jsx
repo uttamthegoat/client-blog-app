@@ -16,7 +16,7 @@ const Home = () => {
           const { title, description, image } = res.data.post;
           const { tags } = res.data;
           setPost({ ...post, title, description, image });
-          setTags(tags)
+          setTags(tags);
         })
         .catch((error) => {
           if (error.response.data.status === "logout") navigate("/auth");
@@ -27,17 +27,16 @@ const Home = () => {
 
   return (
     <div>
-      <Link to="/add-post" className="block w-40 border px-3 py-2 bg-blue-600 text-white rounded-md">Create a new Blog</Link>
-      {post.title}
-      <img src={post.image} alt="postImage" />
-      <p>{post.description}</p>
-      {tags.map((tag,index)=>{
-        return (
-          <span key={index} className="bg-gray-600 px-2 py-1 rounded-2xl mx-0.5">{tag}</span>
-        )
-      })}
+      <Link
+        to="/add-post"
+        className="block w-40 border px-3 py-2 bg-blue-600 text-white rounded-md"
+      >
+        Create a new Blog
+      </Link>
     </div>
   );
 };
 
 export default Home;
+
+
