@@ -16,7 +16,7 @@ const SocialLinks = ({ heading }) => {
               key={link.id}
               target="_blank"
               href={fieldValue(myLinks, link.alt)}
-              className="me-2 flex items-center justify-center bg-white rounded-xl"
+              className={`me-2 flex items-center justify-center bg-white rounded-xl ${fieldValue(myLinks, link.alt)?'':'pointer-events-none opacity-25'}`}
             >
               <LazyLoadImage
                 src={link.src}

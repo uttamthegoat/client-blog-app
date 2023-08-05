@@ -11,7 +11,7 @@ const Home = () => {
   useEffect(() => {
     const fetchUser = () => {
       axios
-        .get("/posts/getPost/64cbbacbd74e9d60822d252e")
+        .get("/posts/g")
         .then((res) => {
           const { title, description, image } = res.data.post;
           const { tags } = res.data;
@@ -22,7 +22,7 @@ const Home = () => {
           if (error.response.data.status === "logout") navigate("/auth");
         });
     };
-    fetchUser();
+    // fetchUser();
   }, []);
 
   return (
