@@ -25,7 +25,7 @@ export const addPost = async (postDet, tags, formData, navigate, dispatch) => {
       const message = res1.data.message,
         type = "success";
       dispatch(showAlert({ message, type }));
-      navigate("/user-profile");
+      navigate(`/post-item/${postId}`);
     }
   } catch (error) {
     console.log(error);

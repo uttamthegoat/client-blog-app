@@ -16,7 +16,6 @@ const PostBody = () => {
 
   const handleFileChange = (e) => {
     setSelectedFile(e.target.files[0]);
-    console.log(e.target.files[0]);
     e.target.files[0] && setFileName(e.target.files[0].name);
     if (e.target.files) {
       setImage(URL.createObjectURL(e.target.files[0]));
@@ -161,7 +160,12 @@ const PostBody = () => {
           </div>
           <section className="flex flex-wrap justify-center mx-auto my-5 sm:w-[450px]">
             {tag.map((item, index) => (
-              <span key={index} className="mx-0.5 my-1 px-4 py-1 bg-gray-600 text-white font-semibold rounded-xl">{item}</span>
+              <span
+                key={index}
+                className="mx-0.5 my-1 px-4 py-1 bg-gray-600 text-white font-semibold rounded-xl"
+              >
+                {item}
+              </span>
             ))}
           </section>
         </div>
