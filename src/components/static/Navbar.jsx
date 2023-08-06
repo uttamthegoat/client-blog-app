@@ -14,12 +14,14 @@ const Navbar = () => {
         <div className="font-bold text-2xl cursor-pointer flex items-center font-[Poppins] text-gray-800">
           <span className="text-3xl text-indigo-600 mr-1">
             <LazyLoadImage
-              src="https://res.cloudinary.com/dnsedswbm/image/upload/v1690739822/brand_hueno5.jpg"
+              src="https://res.cloudinary.com/dnsedswbm/image/upload/v1691305147/Blog_App/brand_vsaj7s.jpg"
               alt="Brand_logo"
               className="w-14 rounded-md"
             />
           </span>
-          <Link to="/" className="Style_name text-[2rem] py-2">Blogger.</Link>
+          <Link to="/" className="Style_name text-[2rem] py-2">
+            Blogger.
+          </Link>
         </div>
         <div
           onClick={() => setOpen(!open)}

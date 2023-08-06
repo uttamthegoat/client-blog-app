@@ -12,7 +12,7 @@ const AboutTheWebsite = (props) => {
         </h1>
         <div className="mb-6">
           <LazyLoadImage
-            src="https://res.cloudinary.com/dnsedswbm/image/upload/v1690739822/brand_hueno5.jpg"
+            src="https://res.cloudinary.com/dnsedswbm/image/upload/v1691305147/Blog_App/brand_vsaj7s.jpg"
             alt="Brand_Logo"
             className="w-32 rounded-lg mx-auto transition-transform transform hover:scale-125  hover:cursor-pointer"
           />
@@ -44,13 +44,13 @@ const AboutTheWebsite = (props) => {
         <h1 className="text-5xl font-bold mb-10 text-center">Creator</h1>
         <div className="mb-9">
           <LazyLoadImage
-            src="https://res.cloudinary.com/dnsedswbm/image/upload/v1690739283/theGoat_k8eu0k.jpg"
+            src="https://res.cloudinary.com/dnsedswbm/image/upload/v1691305335/Blog_App/theGoat_m0gib7.jpg"
             alt="theGoat"
             className="w-56 rounded-lg mx-auto transition-transform transform hover:scale-125  hover:cursor-pointer"
           />
         </div>
         <p className="text-center text-4xl font-bold">Uttam</p>
-        <p className="text-center text-2xl font-semibold">I am {myAge} years</p>
+        <p className="text-center text-2xl font-semibold">I am {myAge} years old.</p>
         <p className="text-center text-2xl font-semibold">About Me:</p>
         <p className="first-letter:text-4xl text-2xl">
           I am a student pursuing my engineering at Mangalore Institute of
