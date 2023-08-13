@@ -1,5 +1,6 @@
 import React from "react";
 const Home = React.lazy(() => import("../pages/Home"));
+const EditPost = React.lazy(() => import("../pages/EditPost"));
 const PostItem = React.lazy(() => import("../pages/PostItem"));
 const Posts = React.lazy(() => import("../pages/Posts"));
 const AddPost = React.lazy(() => import("../pages/AddPost"));
@@ -63,6 +64,12 @@ export const routes = [
     id: 9,
     path: "/post-item/:id",
     element: <PostItem />,
-    status: false,
+    status: true,
+  },
+  {
+    id: 10,
+    path: "/edit-post/:id",
+    element: <EditPost />,
+    status: true,
   },
 ];

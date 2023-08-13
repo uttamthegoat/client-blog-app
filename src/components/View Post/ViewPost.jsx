@@ -1,13 +1,14 @@
 import React from "react";
-import axios from "../../utils/axiosConfig";
-import { getPost } from "./apiCall";
+import { checkEditBlog, deleteBlog, getPost } from "./apiCall";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import "./ViewPost.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { fieldValue, socialLinks } from "../../assets/constants";
 
 const ViewPost = ({ id }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [postItem, setPostItem] = React.useState({
     title: "",
     description: "",
@@ -22,11 +23,34 @@ const ViewPost = ({ id }) => {
   });
 
   React.useEffect(() => {
-    getPost(navigate, id, setPostItem, setAuthor);
+    getPost(navigate, id, setPostItem, setAuthor, dispatch);
   }, []);
+
+  const handleEditBlog = () => {
+    checkEditBlog(id, navigate, dispatch);
+  };
+
+  const handleDeleteBlog = () => {
+    deleteBlog(id, navigate, dispatch);
+  };
 
   return (
     <div className="my-12">
+      <div className="flex justify-end">
+        {/* buttons */}
+        <button
+          onClick={handleEditBlog}
+          className="px-3 py-2 font-semibold rounded-md shadow-md text-md sm:text-lg border border-green-500 text-green-500 hover:text-black bg-black hover:bg-green-600 me-3"
+        >
+          Edit Blog
+        </button>
+        <button
+          onClick={handleDeleteBlog}
+          className="px-3 py-2 font-semibold rounded-md shadow-md text-md sm:text-lg border border-red-500 text-red-500 hover:text-black bg-black hover:bg-red-600 me-3"
+        >
+          Delete Blog
+        </button>
+      </div>
       <div className="my-3 pt-2">
         {/* title */}
         <h1 className="text-2xl md:text-3xl font-bold text-center underline text-with-shadow">
@@ -117,5 +141,3 @@ const ViewPost = ({ id }) => {
 };
 
 export default ViewPost;
-
-// 64cbbacbd74e9d60822d252e
