@@ -63,3 +63,37 @@ export const deleteBlog = async (id, navigate, dispatch) => {
     }
   }
 };
+
+export const getComments = async (id, setPostComments, navigate, dispatch) => {
+  try {
+    const res = await axios.get(`/comments/get-all-comments/${id}`);
+    const { totalComments, all_Comments } = res.data;
+    setPostComments({ totalComments, all_Comments });
+  } catch (error) {
+    console.log(error);
+    const message = error.response.data.message,
+      type = "error";
+    dispatch(showAlert({ message, type }));
+    if (error.response.data.status === "logout") {
+      navigate("/auth");
+    }
+  }
+};
+
+export const addComment = async (id, newComment, user, navigate, dispatch) => {
+  try {
+    const body = { comment: newComment, user: user };
+    const res = await axios.put(`/comments/add-comment/${id}`, body);
+    const { message } = res.data,
+      type = "success";
+    dispatch(showAlert({ message, type }));
+  } catch (error) {
+    console.log(error);
+    const message = error.response.data.message,
+      type = "error";
+    dispatch(showAlert({ message, type }));
+    if (error.response.data.status === "logout") {
+      navigate("/auth");
+    }
+  }
+};

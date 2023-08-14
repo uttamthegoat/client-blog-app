@@ -1,12 +1,20 @@
 import React from "react";
-import { checkEditBlog, deleteBlog, getPost } from "./apiCall";
+import {
+  addComment,
+  checkEditBlog,
+  deleteBlog,
+  getComments,
+  getPost,
+} from "./apiCall";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./ViewPost.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { fieldValue, socialLinks } from "../../assets/constants";
+import { selectUser } from "../../features/user/userSlice";
 
 const ViewPost = ({ id }) => {
+  const user = useSelector(selectUser);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [postItem, setPostItem] = React.useState({
@@ -21,9 +29,29 @@ const ViewPost = ({ id }) => {
     image: "",
     socialMedia: {},
   });
+  const [postComments, setPostComments] = React.useState({
+    totalComments: 0,
+    all_Comments: [],
+  });
+  const [newComment, setNewComment] = React.useState("");
+
+  const handleAddComment = (e) => {
+    e.preventDefault();
+    if (newComment !== "") {
+      addComment(id, newComment, user.name, navigate, dispatch);
+      setPostComments((prevPostComments) => ({
+        totalComments: prevPostComments.totalComments + 1,
+        all_Comments: [
+          { comment: newComment, user: user.name },
+          ...prevPostComments.all_Comments,
+        ],
+      }));
+    }
+  };
 
   React.useEffect(() => {
     getPost(navigate, id, setPostItem, setAuthor, dispatch);
+    getComments(id, setPostComments, navigate, dispatch);
   }, []);
 
   const handleEditBlog = () => {
@@ -60,11 +88,13 @@ const ViewPost = ({ id }) => {
       <div className="my-2 p-2">
         {/* image */}
         <div className="max-w-[700px] mx-auto">
-          <LazyLoadImage
-            src={postItem.image}
-            alt="post_Image"
-            className="rounded-lg cursor-pointer"
-          />
+          {postItem.image && (
+            <LazyLoadImage
+              src={postItem.image}
+              alt="post_Image"
+              className="rounded-lg cursor-pointer"
+            />
+          )}
         </div>
       </div>
       <div>
@@ -134,6 +164,55 @@ const ViewPost = ({ id }) => {
             {postItem.description}
           </pre>
           <p className="text-center font-bold text-xl mt-3"> ▲ Description</p>
+        </div>
+      </div>
+      <div className="mt-10">
+        {/* comments */}
+        <div className="w-full sm:w-10/12 md:w-9/12 mx-auto px-2">
+          {/* add comment */}
+          <form onSubmit={handleAddComment}>
+            <label
+              htmlFor="comment_Post"
+              className="font-semibold text-lg sm:text-xl"
+            >
+              Write your comment
+            </label>
+            <textarea
+              name="comment"
+              id="comment_Post"
+              rows="1"
+              value={newComment}
+              onChange={(e) => setNewComment(e.target.value)}
+              placeholder="Write your comment..."
+              className="mt-2 w-full h-10 placeholder:text-gray-700 outline-none rounded-lg p-2 bg-blue-200"
+            ></textarea>
+            <button
+              type="submit"
+              className="border-2 border-black rounded-md px-3 py-2 text-sm font-semibold hover:bg-black hover:text-sky-400 mx-auto block mt-2"
+            >
+              Add comment
+            </button>
+          </form>
+        </div>
+        <div className="w-full sm:w-10/12 md:w-9/12 mx-auto mt-8 rounded-md px-2">
+          {/* all comments */}
+          <p className="font-semibold text-2xl text-center underline mb-6">
+            Total Comments:- {postComments.totalComments}
+          </p>
+          {postComments.all_Comments.map((commentItem, index) => {
+            return (
+              <div key={index} className="mb-2">
+                <div className="flex">
+                  <span className="flex items-center bg-[#85b1f2] font-semibold rounded-s-lg p-2 border-e-2 border-black">
+                    {commentItem.user}
+                  </span>
+                  <pre className="p-2 whitespace-pre-wrap rounded-e-lg bg-[#85b1f2] flex-grow">
+                    {commentItem.comment}
+                  </pre>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
