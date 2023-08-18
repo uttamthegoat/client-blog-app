@@ -85,7 +85,7 @@ const ViewPost = ({ id }) => {
             <LazyLoadImage
               src={postItem.image}
               alt="post_Image"
-              className="rounded-lg cursor-pointer"
+              className="rounded-lg cursor-pointer mx-auto"
             />
           )}
         </div>
