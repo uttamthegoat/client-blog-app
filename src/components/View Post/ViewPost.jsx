@@ -92,7 +92,7 @@ const ViewPost = ({ id }) => {
       </div>
       <div>
         {/* author's details */}
-        <section className="w-10/12 flex flex-col md:flex-row md:items-center md:justify-between mx-auto bg-blue-100 rounded-xl px-2">
+        <section className="w-9/12 flex flex-col md:flex-row md:items-center md:justify-between mx-auto bg-blue-100 rounded-xl px-2">
           <div className="flex justify-center my-2">
             <div className="w-[90px]">
               <LazyLoadImage
@@ -130,26 +130,28 @@ const ViewPost = ({ id }) => {
             })}
           </div>
         </section>
-        <p className="text-xl text-center font-bold mt-3">
+        <p className="text-xl text-center font-bold my-3">
           <span className="fontasstrabold text-xl"> ▲ </span>Author
         </p>
       </div>
-      <div className="my-8 px-2">
-        {/* tags */}
-        <div className="w-full sm:w-10/12 md:w-2/3 mx-auto bg-blue-300 px-3 py-4 rounded-lg flex flex-wrap justify-center items-center">
-          {postItem.tags.map((tag, index) => {
-            return (
-              <span
-                key={index}
-                className="mx-2 my-1 px-3 py-1 bg-blue-600 font-semibold rounded-xl text-white cursor-pointer"
-              >
-                {tag}
-              </span>
-            );
-          })}
+      {postItem.tags[0] && (
+        <div className="my-8 px-2">
+          {/* tags */}
+          <div className="w-full sm:w-10/12 md:w-2/3 mx-auto bg-blue-300 px-3 py-4 rounded-lg flex flex-wrap justify-center items-center">
+            {postItem.tags.map((tag, index) => {
+              return (
+                <span
+                  key={index}
+                  className="mx-2 my-1 px-3 py-1 bg-blue-600 font-semibold rounded-xl text-white cursor-pointer"
+                >
+                  {tag}
+                </span>
+              );
+            })}
+          </div>
+          <p className="text-center font-bold text-xl mt-3"> ▲ All Tags</p>
         </div>
-        <p className="text-center font-bold text-xl mt-3"> ▲ All Tags</p>
-      </div>
+      )}
       <div>
         {/* description */}
         <div className="w-full sm:w-11/12 md:w-9/12 mx-auto px-2">
