@@ -103,3 +103,18 @@ export const getUser_toEdit = async (navigate, setUserDetails) => {
     if (error.response.data.status === "logout") navigate("/auth");
   }
 };
+
+export const getUserPosts = async (navigate, dispatch, setMyPosts) => {
+  try {
+    const res = await axios.get("/posts/my-posts");
+    const { results, totalResults } = res.data;
+    setMyPosts({ results, totalResults });
+    console.log();
+  } catch (error) {
+    console.log(error);
+    const message = error.response.data.message,
+      type = "error";
+    dispatch(showAlert({ message, type }));
+    if (error.response.data.status === "logout") navigate("/auth");
+  }
+};
