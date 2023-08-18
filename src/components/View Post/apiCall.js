@@ -21,6 +21,9 @@ export const getPost = async (
     const message = error.response.data.message,
       type = "error";
     dispatch(showAlert({ message, type }));
+    if (error.response.data.message === "Post not to be found!") {
+      navigate("/");
+    }
     if (error.response.data.status === "logout") {
       navigate("/auth");
     }
@@ -71,19 +74,33 @@ export const getComments = async (id, setPostComments, navigate, dispatch) => {
     setPostComments({ totalComments, all_Comments });
   } catch (error) {
     console.log(error);
-    const message = error.response.data.message,
-      type = "error";
-    dispatch(showAlert({ message, type }));
     if (error.response.data.status === "logout") {
+      const message = error.response.data.message,
+        type = "error";
+      dispatch(showAlert({ message, type }));
       navigate("/auth");
     }
   }
 };
 
-export const addComment = async (id, newComment, user, navigate, dispatch) => {
+export const addComment = async (
+  id,
+  newComment,
+  navigate,
+  dispatch,
+  setPostComments
+) => {
   try {
-    const body = { comment: newComment, user: user };
+    const body = { comment: newComment };
     const res = await axios.put(`/comments/add-comment/${id}`, body);
+    const { user } = res.data;
+    setPostComments((prevPostComments) => ({
+      totalComments: prevPostComments.totalComments + 1,
+      all_Comments: [
+        { comment: newComment, user },
+        ...prevPostComments.all_Comments,
+      ],
+    }));
     const { message } = res.data,
       type = "success";
     dispatch(showAlert({ message, type }));

@@ -38,14 +38,7 @@ const ViewPost = ({ id }) => {
   const handleAddComment = (e) => {
     e.preventDefault();
     if (newComment !== "") {
-      addComment(id, newComment, user.name, navigate, dispatch);
-      setPostComments((prevPostComments) => ({
-        totalComments: prevPostComments.totalComments + 1,
-        all_Comments: [
-          { comment: newComment, user: user.name },
-          ...prevPostComments.all_Comments,
-        ],
-      }));
+      addComment(id, newComment, navigate, dispatch, setPostComments);
     }
   };
 
@@ -202,11 +195,11 @@ const ViewPost = ({ id }) => {
           {postComments.all_Comments.map((commentItem, index) => {
             return (
               <div key={index} className="mb-2">
-                <div className="flex">
-                  <span className="flex items-center bg-[#85b1f2] font-semibold rounded-s-lg p-2 border-e-2 border-black">
+                <div className="flex flex-col sm:flex-row">
+                  <span className="flex items-center bg-[#85b1f2] font-semibold rounded-t-lg sm:rounded-none sm:rounded-s-lg p-2 border-b-2 sm:border-b-0 sm:border-e-2 border-black">
                     {commentItem.user}
                   </span>
-                  <pre className="p-2 whitespace-pre-wrap rounded-e-lg bg-[#85b1f2] flex-grow">
+                  <pre className="p-2 whitespace-pre-wrap rounded-b-lg sm:rounded-none sm:rounded-e-lg bg-[#85b1f2] flex-grow">
                     {commentItem.comment}
                   </pre>
                 </div>

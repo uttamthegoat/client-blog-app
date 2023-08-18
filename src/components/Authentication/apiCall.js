@@ -6,6 +6,7 @@ export const signup_User = (loginDet, navigate, dispatch) => {
     .post("/auth/signup", loginDet)
     .then((res) => {
       if (res.data.success) {
+        localStorage.setItem("authenticate", true);
         const message = res.data.message,
           type = "success";
         dispatch(showAlert({ message, type }));
@@ -24,6 +25,7 @@ export const login_User = (loginDet, navigate, dispatch) => {
     .post("/auth/login", loginDet)
     .then((res) => {
       if (res.data.success) {
+        localStorage.setItem("authenticate", true);
         const message = res.data.message,
           type = "success";
         dispatch(showAlert({ message, type }));
