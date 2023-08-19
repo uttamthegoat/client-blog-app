@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import SearchForIt from "../components/Search/SearchForIt";
 
 const Search = () => {
   return (
-    <div>Search</div>
-  )
-}
+    <div>
+      <SearchForIt />
+    </div>
+  );
+};
 
-export default Search
+export default Search;

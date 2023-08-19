@@ -15,7 +15,7 @@ const BlogCard = ({ blog }) => {
         Last updated at : {new Date(blog.updatedAt).toDateString()}
       </p>
       <Link
-        to={`post-item/${blog._id}`}
+        to={`/post-item/${blog._id}`}
         className="bg-black px-3 py-2 text-white rounded-lg block w-fit hover:text-gray-300"
       >
         Read More
