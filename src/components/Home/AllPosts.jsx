@@ -52,13 +52,8 @@ const AllPosts = () => {
       >
         {!allPosts.posts.length && (
           <div>
-            <LazyLoadImage
-              src="https://img.memegenerator.net/instances/61821090.jpg"
-              alt="nigga?"
-              className="block mx-auto rounded-lg mb-2"
-            />
             <p className="text-center text-2xl font-semibold">
-              Write some blogs nigga!
+              Try writing some blogs!
             </p>
           </div>
         )}

@@ -67,7 +67,7 @@ const SignupTab = () => {
           type="submit"
           className="w-full bg-red-600 rounded-lg text-white text-center font-bold my-5 py-2"
         >
-          Login
+          Register
         </button>
       </form>
     </div>
